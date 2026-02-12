@@ -1,6 +1,5 @@
 # Plotting
 *.pdf
-*.png
 
 # Other temporary files
 ch07/01_main-chapter-code/*.py
