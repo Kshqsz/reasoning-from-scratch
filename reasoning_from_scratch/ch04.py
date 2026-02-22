@@ -2,7 +2,7 @@
 # Source for "Build a Reasoning Model (From Scratch)": https://mng.bz/lZ5B
 # Code repository: https://github.com/rasbt/reasoning-from-scratch
 
-from .ch02_ex import generate_text_basic_stream_cache
+from .ch02 import generate_text_basic_stream_cache
 from .ch03 import extract_final_candidate
 from .qwen3 import KVCache
 
@@ -183,7 +183,7 @@ def generate_text_temp_stream_cache(
 
         #########################################
         if (eos_token_id is not None
-                and next_token.item() == eos_token_id):
+                and torch.all(next_token == eos_token_id)):
             break
 
         yield next_token
@@ -200,9 +200,11 @@ def top_p_filter(probas, top_p):
     # Step 4.2: Cumulative sum
     cumprobas = torch.cumsum(sorted_probas, dim=1)
 
-    # Step 4.3.1: Keep tokens where cumprob <= top_p
-    keep = cumprobas <= top_p
-    # For top_p <= 0, only the highest‑probability token is guaranteed to be kept as a fallback
+    # Step 4.3.1: Keep tokens where prefix cumulative mass (before token) is < top_ps
+    # Example: [0.5, 0.41, 0.09] with top_p=0.9 should keep the first two tokens
+    prefix = cumprobas - sorted_probas   # cumulative mass before each token
+    keep = prefix < top_p
+    # Always keep at least one token (fallback for very small/non-positive top_p)
     keep[:, 0] = True
 
     # Step 4.3.2: Zero out beyond cutoff
@@ -214,8 +216,8 @@ def top_p_filter(probas, top_p):
     filtered = torch.zeros_like(probas).scatter(1, sorted_idx, kept_sorted)
 
     # Step 4.4: Renormalize to sum to 1
-    denom = torch.sum(filtered, dim=1).clamp_min(1e-12).unsqueeze(-1)
-    # The .unsqueeze(-1) is for optional batch support
+    denom = torch.sum(filtered, dim=1, keepdim=True).clamp_min(1e-12)
+    # keepdim=True is technically not necessary but it makes the code work in batched cases
     return filtered / denom
 
 
@@ -256,7 +258,7 @@ def generate_text_top_p_stream_cache(
             next_token = next_token.to(orig_device)
 
         if (eos_token_id is not None
-                and next_token.item() == eos_token_id):
+                and torch.all(next_token == eos_token_id)):
             break
 
         yield next_token
