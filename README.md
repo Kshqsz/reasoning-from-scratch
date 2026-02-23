@@ -65,31 +65,6 @@ source venv/bin/activate  # macOS/Linux
 pip install -r requirements.txt
 ```
 
-## 📁 项目结构
-
-```
-reasoning-from-scratch/
-├── README.md                          # 项目说明文档
-├── requirements.txt                   # 依赖列表
-├── ch02/                             # 第2章：使用预训练 LLM 生成文本
-│   ├── ch02_main.ipynb              # 完整的文本生成演示
-│   └── qwen3/                       # 模型和分词器文件（需下载）
-└── reasoning_from_scratch/           # 核心代码包
-    ├── qwen3.py                     # Qwen3 模型完整实现
-    ├── ch02.py                      # 第2章：文本生成核心功能
-    ├── ch02_ex.py                   # 扩展功能（KV-Cache等）
-    ├── utils.py                     # 工具函数
-    └── ...                          # 其他章节代码（待学习）
-```
-
-## 💡 使用说明
-
-### 快速开始
-
-1. **下载模型和分词器**：运行 Notebook 中的下载代码
-2. **打开 Jupyter Notebook**：`ch02/ch02_main.ipynb` 包含完整的交互式演示
-3. **按步骤执行**：从分词到文本生成，体验完整流程
-
 ## 📚 学习内容
 
 ### ✅ 第2章：使用预训练 LLM 生成文本
