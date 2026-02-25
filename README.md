@@ -96,6 +96,9 @@ pip install -r requirements.txt
   <p><em>第3章核心内容概览</em></p>
 </div>
 
+
+
+![1772029502985](image/README/1772029502985.png)
 ### 🔜 后续章节（待学习）
 
 - 第4章：灵活的文本生成策略
