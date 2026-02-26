@@ -112,9 +112,64 @@ pip install -r requirements.txt
   <p><em>第4章核心内容概览：推理时缩放策略</em></p>
 </div>
 
+### ✅ 第5章：推理时缩放与自我优化
+
+通过自我评估和迭代改进来优化模型输出，实现模型的自我反思和优化，包含：
+
+- **启发式评分**：根据答案格式和长度对答案进行评分
+- **Token概率计算**：计算生成文本的条件概率和对数概率
+- **答案评估**：通过平均对数概率衡量答案的可能性
+- **自我批评与改进**：使用提示工程指导模型进行自我批评
+- **迭代优化循环**：通过多轮批评-改进迭代提升最终答案质量
+- **动态评分机制**：根据迭代过程中的评分动态选择最优答案
+
+<div align="center">
+  <img src="image/README/1772094902736.png" alt="第5章自我优化框架" width="800">
+  <p><em>第5章核心内容：自我优化迭代循环</em></p>
+</div>
+
+**启发式评分示意：**
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center" width="50%">
+        <img src="image/README/1772094924003.png" alt="启发式评分规则" width="100%">
+      </td>
+      <td align="center" width="50%">
+        <img src="image/README/1772094953756.png" alt="评分计算公式" width="100%">
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><em>基于答案特征的评分机制</em></td>
+    </tr>
+  </table>
+</div>
+
+**自我优化迭代过程：**
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center" width="33.33%">
+        <img src="image/README/1772094964317.png" alt="批评改进循环" width="100%">
+      </td>
+      <td align="center" width="33.33%">
+        <img src="image/README/1772094978350.png" alt="迭代优化流程" width="100%">
+      </td>
+      <td align="center" width="33.33%">
+        <img src="image/README/1772094990614.png" alt="最终答案选择" width="100%">
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3" align="center"><em>自我批评与改进的迭代过程</em></td>
+    </tr>
+  </table>
+</div>
+
 ### 🔜 后续章节（待学习）
 
-- 第5章及更多内容...
+- 第6章及更多内容...
 
 ## 📖 参考资料
 
