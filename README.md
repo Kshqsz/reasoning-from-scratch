@@ -129,44 +129,20 @@ pip install -r requirements.txt
 </div>
 
 **启发式评分示意：**
-
 <div align="center">
-  <table>
-    <tr>
-      <td align="center" width="50%">
-        <img src="image/README/1772094924003.png" alt="启发式评分规则" width="100%">
-      </td>
-      <td align="center" width="50%">
-        <img src="image/README/1772094953756.png" alt="评分计算公式" width="100%">
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2" align="center"><em>基于答案特征的评分机制</em></td>
-    </tr>
-  </table>
+  <img src="image/README/1772094924003.png" alt="启发式评分规则" width="800">
+  <img src="image/README/1772094953756.png" alt="评分计算公式" width="800">
+  <p><em>基于答案特征的评分机制</em></p>
 </div>
 
 **自我优化迭代过程：**
 
 <div align="center">
-  <table>
-    <tr>
-      <td align="center" width="33.33%">
-        <img src="image/README/1772094964317.png" alt="批评改进循环" width="100%">
-      </td>
-      <td align="center" width="33.33%">
-        <img src="image/README/1772094978350.png" alt="迭代优化流程" width="100%">
-      </td>
-      <td align="center" width="33.33%">
-        <img src="image/README/1772094990614.png" alt="最终答案选择" width="100%">
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3" align="center"><em>自我批评与改进的迭代过程</em></td>
-    </tr>
-  </table>
+  <img src="image/README/1772094964317.png" alt="批评改进循环" width="800">
+  <img src="image/README/1772094978350.png" alt="迭代优化流程" width="800">
+  <img src="image/README/1772094990614.png" alt="最终答案选择" width="800">
+  <p><em>自我批评与改进的迭代过程</em></p>
 </div>
-
 ### 🔜 后续章节（待学习）
 
 - 第6章及更多内容...
