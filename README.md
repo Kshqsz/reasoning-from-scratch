@@ -129,6 +129,7 @@ pip install -r requirements.txt
 </div>
 
 **启发式评分示意：**
+
 <div align="center">
   <img src="image/README/1772094924003.png" alt="启发式评分规则" width="800">
   <img src="image/README/1772094953756.png" alt="评分计算公式" width="800">
@@ -143,9 +144,25 @@ pip install -r requirements.txt
   <img src="image/README/1772094990614.png" alt="最终答案选择" width="800">
   <p><em>自我批评与改进的迭代过程</em></p>
 </div>
+
+### ✅ 第6章：基于 RLVR 与 GRPO 的强化学习微调
+
+通过可验证奖励（RLVR）和组相对策略优化（GRPO）对模型进行后训练，实现从采样到奖励再到策略更新的完整训练闭环，包含：
+
+- **训练数据构建**：加载并使用数学推理训练集进行逐步训练
+- **Rollout 采样生成**：结合温度缩放与 Top-P 采样生成多条候选回答
+- **可验证奖励函数**：基于 `\boxed{}` 答案提取与符号等价校验计算奖励
+- **组内优势估计**：对同组 Rollout 奖励进行标准化得到优势值
+- **策略梯度更新**：根据 GRPO 目标计算损失并执行反向传播
+
+<div align="center">
+  <img src="image/README/1776319067565.png" alt="第6章核心流程图" width="800">
+  <p><em>第6章核心内容：RLVR-GRPO 训练流程</em></p>
+</div>
+
 ### 🔜 后续章节（待学习）
 
-- 第6章及更多内容...
+第7章及更多内容...
 
 ## 📖 参考资料
 
