@@ -1,8 +1,11 @@
 # Plotting
 *.pdf
 
+
+
 # Other temporary files
 ch07/01_main-chapter-code/*.py
+ch08/deepseek-r1-math-train.json
 checkpoints
 *.pth
 *.csv
