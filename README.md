@@ -160,9 +160,19 @@ pip install -r requirements.txt
   <p><em>第6章核心内容：RLVR-GRPO 训练流程</em></p>
 </div>
 
-### 🔜 后续章节（待学习）
+### ✅ 第7章：GRPO 训练稳定性与奖励设计进阶
 
-第7章及更多内容...
+第7章在第6章 RLVR-GRPO 基础上，重点不是“再加数据”，而是“让训练更可控、更稳定、更可诊断”。核心学习内容包括：
+
+- **训练可观测性增强（plus tracking）**：在训练日志中加入 `adv_avg`、`adv_std`、`entropy_avg`、`avg_response_len`、`tokens_per_sec` 等指标，便于定位奖励稀疏、策略坍塌和采样异常问题。
+- **PPO 风格策略比率裁剪（plus clip ratio）**：从仅依赖优势加权，升级为基于 `ratio` / `clipped_ratio` 的目标函数，抑制单步更新过大导致的训练震荡。
+- **KL 正则约束（plus KL）**：引入参考模型并增加 KL 惩罚项，限制策略偏移速度，在“探索能力”和“输出稳定性”之间建立可调平衡。
+- **格式奖励（plus format reward）**：在答案正确性奖励外增加结构化输出奖励（如 `<think>...</think>` 约束），把“答对”与“答得规范”统一进同一奖励体系。
+
+<div align="center">
+  <img src="image/README/1776752384477.png" alt="第7章训练稳定性与奖励设计进阶" width="800">
+  <p><em>第7章核心内容：从可观测性、约束项到奖励函数设计的系统优化</em></p>
+</div>
 
 ## 📖 参考资料
 
