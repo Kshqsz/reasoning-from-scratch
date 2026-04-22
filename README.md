@@ -174,12 +174,23 @@ pip install -r requirements.txt
   <p><em>第7章核心内容：从可观测性、约束项到奖励函数设计的系统优化</em></p>
 </div>
 
-### 第八章：蒸馏
+### ✅ 第8章：蒸馏（Distillation）
 
-![1776846616938](image/README/1776846616938.png)
+第8章聚焦“用教师推理轨迹监督学生模型”，在保持推理能力的同时提升训练与推理效率。当前 `ch08` 已完成从数据准备到训练、日志分析与评测的完整闭环。
+
+- **蒸馏数据构建**：加载 `deepseek-r1-math-train`，将 `problem` 渲染为提示词，拼接 `message_thinking` 与 `message_content` 作为监督目标。
+- **可选 think token 训练**：支持将思维过程包装为 `<think>...</think>`（`--use_think_tokens`），也支持去除 think 标签后训练。
+- **长度过滤与数据划分**：按 `max_seq_len` 过滤超长样本（默认 2048），并划分训练/验证集。
+- **监督损失设计**：交叉熵仅对**答案区间**计算（不监督提示词 token），更贴近“给定问题→学习回答”的蒸馏目标。
+- **训练稳定性增强**：支持梯度裁剪（`--grad_clip_norm`）、周期性验证（`--log_every`）、CSV 指标记录与 epoch 检查点保存。
+- **结果评估**：提供 JSON 记录评测脚本与 MATH-500 评测脚本，便于对蒸馏前后效果做对比。
 
 
-![1776846651057](image/README/1776846651057.png)
+<div align="center">
+  <img src="image/README/1776846616938.png" alt="第8章蒸馏流程图1" width="800">
+  <img src="image/README/1776846651057.png" alt="第8章蒸馏流程图2" width="800">
+  <p><em>第8章核心内容：蒸馏数据构造、训练目标与评估流程</em></p>
+</div>
 
 ## 📖 参考资料
 
